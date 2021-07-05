@@ -1,0 +1,159 @@
+{% extends 'layout.html' %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: 'Back',
+    href: '../dashboard'
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class='govuk-grid-row'>
+    <div class='govuk-grid-column-two-thirds'>
+      <form method="post">
+
+        {% call govukFieldset({
+          legend: {
+            html: '<span class="govuk-caption-l">Create an import notification</span> About the import',
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ govukRadios({
+            idPrefix: 'new-import-type',
+            name: 'new-import-type',
+            fieldset: {
+              legend: {
+                text: 'What are you importing?',
+                classes: 'govuk-fieldset__legend--m'
+              }
+            },
+            items: [
+              {
+                html: 'Live animals',
+                value: 'Live animals',
+                checked: checked('new-import-type','Live animals')
+              },
+              {
+                html: 'Products of animal origin',
+                value: 'Products of animal origin',
+                checked: checked('new-import-type','Products of animal origin')
+              },
+              {
+                html: 'High risk food and feed of non-animal origin',
+                value: 'High risk food and feed of non-animal origin',
+                checked: checked('new-import-type','High risk food and feed of non-animal origin')
+              },
+              {
+                html: 'Plants, plant products and other objects',
+                value: 'Plants, plant products and other objects',
+                checked: checked('new-import-type','Plants, plant products and other objects')
+              }
+            ]
+          }) }}
+
+          {% call govukFieldset({
+            legend: {
+              text: 'Origin of the import',
+              classes: 'govuk-fieldset__legend--m'
+            }
+          }) %}
+
+            {{ govukSelect({
+              id: 'new-country-origin',
+              name: 'new-country-origin',
+              classes: 'govuk-!-width-two-thirds',
+              label: {
+                text: 'Country of origin'
+              },
+              items: [
+                {
+                  value: 'Afghanistan',
+                  text: 'Afghanistan'
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              idPrefix: 'new-region-code',
+              name: 'new-region-code',
+              fieldset: {
+                legend: {
+                  text: 'Does your consignment require a region code?'
+                }
+              },
+              items: [
+                {
+                  html: 'Yes',
+                  value: 'Yes',
+                  checked: checked('new-region-code','Yes')
+                },
+                {
+                  html: 'No',
+                  value: 'No',
+                  checked: checked('new-region-code','No')
+                }
+              ]
+            }) }}
+
+            {{ govukSelect({
+              id: 'new-country-consignment',
+              name: 'new-country-consignment',
+              classes: 'govuk-!-width-two-thirds',
+              label: {
+                text: 'Country of consignment'
+              },
+              items: [
+                {
+                  value: 'Afghanistan',
+                  text: 'Afghanistan'
+                }
+              ]
+            }) }}
+
+            {{ govukRadios({
+              idPrefix: 'new-transport-after-bcp',
+              name: 'new-transport-after-bcp',
+              fieldset: {
+                legend: {
+                  text: 'Do you need to provide means of transport after Border Control Post (BCP) details?'
+                }
+              },
+              items: [
+                {
+                  html: 'Yes',
+                  value: 'Yes',
+                  checked: checked('new-transport-after-bcp','Yes')
+                },
+                {
+                  html: 'No',
+                  value: 'No',
+                  checked: checked('new-transport-after-bcp','No')
+                }
+              ]
+            }) }}
+
+          {% endcall %}
+
+          {{ govukInput({
+            id: 'new-ref-number',
+            name: 'new-ref-number',
+            value: data['new-ref-number'],
+            classes: 'govuk-!-width-two-thirds',
+            label: {
+              html: 'Add a reference number (optional)',
+              classes: 'govuk-label--/s'
+            }
+          }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+          html: 'Save and continue'
+        }) }}
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

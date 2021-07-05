@@ -1,0 +1,63 @@
+// global styles for <a> and <p> tags
+$govuk-global-styles: true;
+$govuk-new-link-styles: true;
+
+// We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
+$govuk-assets-path: '/govuk/assets/';
+
+// Import GOV.UK Frontend and any extension styles if extensions have been configured
+@import "lib/extensions/extensions";
+
+// Patterns that aren't in Frontend
+@import "patterns/step-by-step-header";
+@import "patterns/step-by-step-nav";
+@import "patterns/step-by-step-related";
+@import "patterns/task-list";
+@import "patterns/related-items";
+@import "patterns/internal";
+
+// Style code examples in documentation
+code {
+  @include govuk-font($size: 19);
+  color: #d13118;
+  background-color: govuk-colour("light-grey", $legacy: "grey-4");
+  padding: 0 govuk-spacing(1);
+}
+
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+
+
+
+
+// Top border for headers to draw attention to areas
+.app-border-top-big {
+  border-top: 5px solid $govuk-brand-colour;
+  padding-top: 15px;
+}
+
+
+
+// Status circle indicators
+$status-not-started: #b1b4b6;
+$status-in-progress: #f47738;
+$status-complete: #85994b;
+
+.app-status::before {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  border-radius: .5rem;
+  height: 1rem;
+  width: 1rem;
+  margin-right: 0.3rem;
+  background: $status-not-started;
+}
+
+  .app-status--in-progress::before {
+    background: $status-in-progress;
+  }
+  .app-status--complete::before {
+    background: $status-complete;
+  }

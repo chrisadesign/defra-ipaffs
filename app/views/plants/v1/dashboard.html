@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        Your import notifications
+      </h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-heading-m govuk-!-margin-top-4">
+            Submit an import notification
+          </h2>
+          <p>Tell us about a new import of live animals, animal products and high risk food and feed not of animal origin into Great Britain.</p>
+          {# <p>Tell us about an import, you must submit your notification:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>one working day before your consignment is due to arrive, if it is coming from a non-EU country</li>
+            <li>24 hours before your consignment is due to arrive, if it is coming from the EU or EEA</li>
+          </ul> #}
+
+          <a href="create/new" role="button" draggable="false" class="govuk-button govuk-!-margin-bottom-9" data-module="govuk-button">
+            Create notification
+          </a>
+
+        </div>
+
+        <div class="govuk-grid-column-one-third">
+          <h2 class="govuk-heading-m app-border-top-big">
+            Find a notification
+          </h2>
+
+          <div class="moj-search">
+            <form action="#0" method="post">
+              <div class="govuk-form-group">
+                <div id="search-hint" class="govuk-hint moj-search__hint app-!-colour-black">
+                  Certificate number or keywords
+                </div>
+
+                <input class="govuk-input moj-search__input " id="search" name="search" type="search" aria-describedby="search-hint">
+              </div>
+
+              <button class="govuk-button moj-search__button " data-module="govuk-button">
+                Find
+              </button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m app-border-top-big govuk-!-margin-top-4">
+        All notifications
+      </h2>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header" aria-sort="descending">Reference</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Commodity</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Origin</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Arrival at BIP/DPE</th>
+            <th scope="col" class="govuk-table__header" aria-sort="none">Status</th>
+            <th scope="col" class="govuk-table__header">
+              <span class="govuk-visually-hidden">Action</span></th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">CVEDP.GB.2019.23948720</td>
+            <td class="govuk-table__cell">02040608</td>
+            <td class="govuk-table__cell">Antigua</td>
+            <td class="govuk-table__cell">19 July 2021</td>
+            <td class="govuk-table__cell">
+              <span class="app-status">New</span></td>
+            <td class="govuk-table__cell">
+              <a href="check-address" class="govuk-link--no-visited-state">View details</a>
+            </td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">CVEDP.GB.2019.23948720</td>
+            <td class="govuk-table__cell">02040608</td>
+            <td class="govuk-table__cell">Antigua</td>
+            <td class="govuk-table__cell">1 July 2021</td>
+            <td class="govuk-table__cell">
+              <span class="app-status app-status--in-progress">In progress</span></td>
+            <td class="govuk-table__cell">
+              <a href="#0" class="govuk-link--no-visited-state">View details</a>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+{% endblock %}

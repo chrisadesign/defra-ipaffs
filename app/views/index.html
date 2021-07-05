@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  {{ govukHeader({}) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ serviceName }}
+      </h1>
+      <p>
+        <a href="plants/">Plants proto</a>
+      </p>
+
+    </div>
+  </div>
+{% endblock %}
